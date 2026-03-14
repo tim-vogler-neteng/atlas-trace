@@ -3,10 +3,11 @@
 A Python tool for performing traceroute measurements from geographically diverse RIPE Atlas probes with result polling, analysis, and ISP/regional issue highlighting.
 
 ## Features
-
-- 🌍 **Geographic Diversity**: Automatically selects probes from 5 global regions (Europe, North America, South America, Asia-Pacific, Middle East & Africa)
-- 🔄 **Result Polling**: Built-in retry logic with configurable delays to wait for measurement results
-- 📊 **Comprehensive Analysis**: 
+- **Geographic Diversity**: Automatically selects probes from 14 global regions 
+	(US-Northeast, US-Southeast, US-Central, US-West, Canada, Latin America, Western Europe, 
+	Eastern Europe, Middle East, Africa, Asia-Pacific, India, AUZ, China)
+- **Result Polling**: Built-in retry logic with configurable delays to wait for measurement results
+- **Comprehensive Analysis**: 
   - Success rates by region, country, and ASN
   - Timeout tracking and failure analysis
   - Routing anomaly detection (long paths, routing blackholes)
@@ -38,7 +39,7 @@ Or pass it directly with the `-t` flag.
 
 ### Basic Usage
 
-Trace to a single IP address using 50 diverse probes:
+Trace to a single IP address using 20 diverse probes:
 
 ```bash
 python atlas_trace.py 8.8.8.8
@@ -51,9 +52,9 @@ python atlas_trace.py 8.8.8.8 -p 100 -r 60 -d 3
 ```
 
 Options:
-- `-p, --probes N`: Number of probes to use (default: 50)
-- `-r, --retries N`: Maximum retry attempts for results (default: 30)
-- `-d, --delay N`: Delay between retries in seconds (default: 5)
+- `-p, --probes N`: Number of probes to use (default: 20)
+- `-r, --retries N`: Maximum retry attempts for results (default: 10)
+- `-d, --delay N`: Delay between retries in seconds (default: 6)
 - `-t, --token TOKEN`: API token (or use `ripe_atlas_api_token` env var)
 
 ### Examples
@@ -87,11 +88,6 @@ The tool provides a comprehensive report including:
 3. **Failed Probes Analysis** (if applicable)
    - Timeout and error breakdown
    - Failed probes grouped by region and country
-
-4. **Routing Anomalies** (if detected)
-   - Path length anomalies (unusually long paths)
-   - Stars detected (potential routing blackholes or filtering)
-   - Issues grouped by anomaly type and geographic region
 
 ## Example Output
 
@@ -168,10 +164,4 @@ For more information about RIPE Atlas API:
 - https://atlas.ripe.net/docs/
 - https://atlas.ripe.net/docs/api/v2/
 
-## License
 
-MIT
-
-## Author
-
-Created for network diagnostics and topology analysis using RIPE Atlas infrastructure.
