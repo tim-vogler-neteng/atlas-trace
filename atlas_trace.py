@@ -351,6 +351,9 @@ class RIPEAtlasTracer:
                       end="\r")
                 time.sleep(retry_delay)
 
+            except KeyboardInterrupt:
+                print(f"\n\nInterrupted — returning {len(last_results)}/{expected_count} partial results")
+                return last_results
             except requests.exceptions.RequestException as e:
                 print(f"Error fetching results: {e}")
                 sys.exit(1)
