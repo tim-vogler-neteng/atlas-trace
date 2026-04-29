@@ -21,8 +21,18 @@ A Python tool for performing traceroute measurements from geographically diverse
 
 ## Installation
 
+Python 3.13+ requires a virtual environment. Create and activate one, then install dependencies:
+
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
+```
+
+To activate the virtual environment in future sessions:
+
+```bash
+source .venv/bin/activate
 ```
 
 ## Setup
@@ -30,7 +40,7 @@ pip install -r requirements.txt
 Set your RIPE Atlas API token as an environment variable:
 
 ```bash
-export ripe_atlas_api_token="your-api-key-here"
+export RIPE_ATLAS_API_TOKEN="your-api-key-here"
 ```
 
 Or pass it directly with the `-t` flag.
